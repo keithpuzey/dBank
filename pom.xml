@@ -299,7 +299,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <file>target/src/main/resources/templates/login.html</file>
+                    <file>src/main/resources/templates/login.html</file>
                     <replacements>
                         <replacement>
                             <token>@@BUILD@@</token>
