@@ -50,7 +50,7 @@ scenarios:
           - CSS: '#password'
           - XPath: //input[@id='password']
           - XPath: //div[2]/input
-        param: Demo4123!
+        param: Demo123!
 
       - type: click
         locators:
