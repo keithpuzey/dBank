@@ -34,15 +34,71 @@ scenarios:
       - clickByID(submit)
     - label: Visa Payment
       actions:
-      - clickByLinkText(Visa Direct)
-      - clickByLinkText(Visa Transfer)
-      - clickByCSS(select[name="extAccount"])
-      - selectByCSS(select[name="extAccount"]): "------ Account Ending in 123 ------"
-      - clickByCSS(select[name="extAccount"])
-      - clickByID(extAmount)
-      - typeByID(extAmount): "5"
-      - clickByCSS(div.col.col-sm-4)
-      - clickByCSS(button.btn.btn-primary.btn-sm)
+    - label: select visa
+      actions:
+      - type: click
+        locators:
+          - LinkText: VISA Direct
+          - XPath: //div[@id='main-menu']/ul/li[6]/a
+          - XPath: (//a[contains(@href, '#')])[5]
+          - XPath: //li[6]/a
+      - type: click
+        locators:
+          - ID: extAccount
+          - Name: extAccount
+          - CSS: '#extAccount'
+          - XPath: //select[@id='extAccount']
+          - XPath: //div[@id='right-panel']/div[2]/div/div/div/div/form/div/div/div/select
+          - XPath: //select
+
+      - type: select
+        locators:
+          - ID: extAccount
+          - Name: extAccount
+          - CSS: '#extAccount'
+          - XPath: //select[@id='extAccount']
+          - XPath: //div[@id='right-panel']/div[2]/div/div/div/div/form/div/div/div/select
+          - XPath: //select
+        param: '------ Account Ending in 123 ------'
+        metadata:
+          recordId: 47ab2e2a-db77-49bd-8d0b-86dc81508ee5
+          page-title: Digital Bank
+          page-url: 'http://dbank.dbankdemo.com:8080/bank/external/xfer-visa'
+      - type: click
+        locators:
+          - ID: extAccount
+          - Name: extAccount
+          - CSS: '#extAccount'
+          - XPath: //select[@id='extAccount']
+          - XPath: //div[@id='right-panel']/div[2]/div/div/div/div/form/div/div/div/select
+          - XPath: //select
+
+      - type: click
+        locators:
+          - ID: extAmount
+          - Name: extAmount
+          - CSS: '#extAmount'
+          - XPath: //input[@id='extAmount']
+          - XPath: //div[@id='right-panel']/div[2]/div/div/div/div/form/div/div[2]/div/input
+          - XPath: //div[2]/div/input
+
+      - type: type
+        locators:
+          - ID: extAmount
+          - Name: extAmount
+          - CSS: '#extAmount'
+          - XPath: //input[@id='extAmount']
+          - XPath: //div[@id='right-panel']/div[2]/div/div/div/div/form/div/div[2]/div/input
+          - XPath: //div[2]/div/input
+        param: 5
+
+      - type: click
+        locators:
+          - CSS: button.btn.btn-primary.btn-sm
+          - XPath: (//button[@type='submit'])[3]
+          - XPath: //div[@id='right-panel']/div[2]/div/div/div/div/form/div[2]/button
+          - XPath: //form/div[2]/button
+
     - label: Check Visa Status
       actions:
       - assertTextByID(approvalStatus): "Approval Status = Approved"
