@@ -108,7 +108,7 @@ public class VisaService {
 					approvalcode = "Approved";
 					break;
 				case 51:
-					approvalcode = "Insufficient Funds";
+					approvalcode = "Insufficient Funds2";
 					break;
 				case 57:
 					approvalcode = "Transaction Not Approved";
