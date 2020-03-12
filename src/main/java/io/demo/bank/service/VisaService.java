@@ -200,7 +200,7 @@ public class VisaService {
 			return true;
 		}
 		catch (IllegalArgumentException ex) {
-			LOG.error("VISA API Service: Connection properties for protocol, host, and port are not correctly configured ");
+			LOG.error("VISA API Service: Connection properties for protocol, host, and port are not correctly configured");
 			LOG.error("VISA API Service URL: " + VisaService.apiBaseUrl);
 			LOG.error(ex.getMessage());
 		}
