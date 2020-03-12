@@ -17,6 +17,7 @@ execution:
 
 scenarios:
   dbank visa transfer-Selenium:
+    browser: Chrome  # available browsers are: ["Firefox", "Chrome", "Ie", "Opera"]
     generate-flow-markers: true 
     headless: false
     timeout: 60s
@@ -24,57 +25,17 @@ scenarios:
     requests:
     - label: Login
       actions:
-      - type: go
-        param: http://dbank.dbankdemo.com:8080/bank/login?logout
-      - type: click
-        locators:
-          - ID: username
-          - Name: username
-          - CSS: '#username'
-          - XPath: //input[@id='username']
-          - XPath: //input
-      - type: type
-        locators:
-          - ID: username
-          - Name: username
-          - CSS: '#username'
-          - XPath: //input[@id='username']
-          - XPath: //input
-        param: jsmith@demo.io
-        
-      - type: type
-        locators:
-          - ID: password
-          - Name: password
-          - CSS: '#password'
-          - XPath: //input[@id='password']
-          - XPath: //div[2]/input
-        param: Demo123!
-      - type: click
-        locators:
-          - ID: submit
-          - CSS: '#submit'
-          - XPath: //button[@id='submit']
-          - XPath: //button
-    - label: VISA Transfer
-      actions:
-      - type: click
-        locators:
-          - LinkText: VISA Direct
-          - XPath: //div[@id='main-menu']/ul/li[6]/a
-          - XPath: (//a[contains(@href, '#')])[5]
-          - XPath: //li[6]/a
-
-      - type: click
-        locators:
-          - LinkText: VISA Transfer
-          - CSS: ul.sub-menu.children.dropdown-menu.show > li > a
-          - XPath: //a[contains(text(),'VISA Transfer')]
-          - XPath: //div[@id='main-menu']/ul/li[6]/ul/li/a
-          - XPath: //a[contains(@href, '/bank/external/xfer-visa')]
-          - XPath: //li[6]/ul/li/a
+      - go(http://dbankdemo.com/login?logout)
+      - clickByCSS(div.container)
+      - clickByCSS(div.container)
+      - typeByID(username): "jsmith@demo.io"
+      - clickByCSS(div.login-form)
+      - typeByID(password): "Demo123!"
+      - clickByID(submit)
     - label: Visa Payment
       actions:
+      - clickByLinkText(Visa Direct)
+      - clickByLinkText(Visa Transfer)
       - clickByCSS(select[name="extAccount"])
       - selectByCSS(select[name="extAccount"]): "------ Account Ending in 123 ------"
       - clickByCSS(select[name="extAccount"])
@@ -88,16 +49,5 @@ scenarios:
       - clickByID(approvalStatus)
     - label: Logout
       actions:
-      - type: click
-        locators:
-          - CSS: img.user-avatar.rounded-circle
-          - XPath: //img[@alt='User Avatar']
-          - XPath: //header[@id='header']/div/div[2]/div/a/img
-          - XPath: //div[2]/div/a/img
-      - type: click
-        locators:
-          - LinkText: Logout
-          - XPath: //a[contains(text(),'Logout')]
-          - XPath: //header[@id='header']/div/div[2]/div/div/a[3]
-          - XPath: //a[contains(@href, '/bank/logout')]
-          - XPath: //a[3]
+      - clickByCSS(img.user-avatar.rounded-circle)
+      - clickByLinkText(Logout)
