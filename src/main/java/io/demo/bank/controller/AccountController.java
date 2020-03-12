@@ -424,7 +424,7 @@ public class AccountController extends CommonController {
 		AccountTransaction transaction = new AccountTransaction();
 		transaction.setAmount(transfer.getAmount());
 		
-		// If this is not an ADMIN user, then make sure the account belongs to the user
+		// If this is not an ADMIN user, then make sure the account belongs to the user.
 		if (!hasRole(authUser, Role.ROLE_ADMIN)) {
 			if (!(fromAccount.getOwner().getId() == authUser.getId() || fromAccount.getCoowner().getId() == authUser.getId())) {
 				throw new RestForbiddenException(Messages.ACCESS_FORBIDDEN);
