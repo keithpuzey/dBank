@@ -105,7 +105,7 @@ public class VisaService {
 			
 			switch (Integer.valueOf(approvalID)) {
 				case 0:
-					approvalcode = "Approved";
+					approvalcode = "Approved2";
 					break;
 				case 51:
 					approvalcode = "Insufficient Funds";
