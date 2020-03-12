@@ -73,16 +73,19 @@ scenarios:
           - XPath: //div[@id='main-menu']/ul/li[6]/ul/li/a
           - XPath: //a[contains(@href, '/bank/external/xfer-visa')]
           - XPath: //li[6]/ul/li/a
-
-      - type: assertText
-        locators:
-          - CSS: strong.card-title.text-white
-          - XPath: //div[@id='right-panel']/div[2]/div/div/div/div/div/strong
-          - XPath: //strong
-        param: Direct Payment to VISA
-        metadata:
-          page-title: Digital Bank
-          page-url: 'http://dbank.dbankdemo.com:8080/bank/external/xfer-visa'
+    - label: Visa Payment
+      actions:
+      - clickByCSS(select[name="extAccount"])
+      - selectByCSS(select[name="extAccount"]): "------ Account Ending in 123 ------"
+      - clickByCSS(select[name="extAccount"])
+      - clickByID(extAmount)
+      - typeByID(extAmount): "5"
+      - clickByCSS(div.col.col-sm-4)
+      - clickByCSS(button.btn.btn-primary.btn-sm)
+    - label: Check Visa Status
+      actions:
+      - assertTextByID(approvalStatus): "Approval Status = Approved"
+      - clickByID(approvalStatus)
     - label: Logout
       actions:
       - type: click
