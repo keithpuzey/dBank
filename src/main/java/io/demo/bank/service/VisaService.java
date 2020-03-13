@@ -188,7 +188,7 @@ public class VisaService {
 		if (protocol == null ||
 			host == null) {
 			
-			LOG.error("VISA API Service: Connection properties are missing in the configuration.");
+			LOG.error("VISA API Service: Connection properties are missing in the configuration");
 			
 			return false;
 		}
