@@ -50,7 +50,7 @@ public class WebVisaController extends WebCommonController {
 		LOG.debug("Visa Web Controller :-> Visa Amount = " + extAmount);
 		
 		
-				// Set Display Defaults test
+				// Set Display Defaults test - update
 		setDisplayDefaults(principal, model);
 		
 		try {
