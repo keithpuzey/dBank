@@ -10,6 +10,8 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
+	// Comments field
+
 @SpringBootApplication
 public class DigitalBankApplication extends SpringBootServletInitializer {
 
