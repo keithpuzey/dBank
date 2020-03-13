@@ -170,7 +170,7 @@ public class VisaService {
 				VisaService.apiBaseUrl += ":" + port;
 			} else {
 				// if the port is a default of 443 or 80, then only add the port if 
-				// it has been specified without the associated default protocol for the port.
+				// it has been specified without the associated default protocol for the ports.
 				if (port.equals("443") && protocol.equals("http")) {
 					VisaService.apiBaseUrl += ":" + port;
 				}
