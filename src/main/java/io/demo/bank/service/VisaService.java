@@ -95,7 +95,7 @@ public class VisaService {
 
 			LOG.debug("can be removed Visa Service :-> Action Code vvvfrom visa    = " + idCode);
 			LOG.debug("Visa Service :-> Approval Code from visa  = " + Approvalcode);
-			LOG.debug("Visa Service :-> CAVVResult Code from visa  = " + CAVVResult);
+			LOG.debug("Visa Service :-> CAVVResult Code from visa    = " + CAVVResult);
 			
 			
 			String approvalcode = "Approved";
