@@ -124,7 +124,7 @@ public class VisaService {
 			results.add("Approval Code = " + root.path("approvalCode").asText());
 			results.add("CAVV Result Code = " + root.path("cavvResultCode").asText());
 			results.add("VISA Response Code = " + root.path("responseCode").asText());
-			results.add("VISA Transaction Identifier = " + root.path("transactionIdentifier").asText());
+			results.add("VISA Transaction Identifier =  " + root.path("transactionIdentifier").asText());
 				
 		}
 		catch (HttpStatusCodeException ex) {
