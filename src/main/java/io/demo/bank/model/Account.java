@@ -159,7 +159,7 @@ public class Account {
 	}
 
 	/**
-	 * @param interestRate the interestRate to set
+	 * @param interestRate the interestRate to set - Add comment
 	 */
 	public void setInterestRate(double interestRate) {
 		this.interestRate = interestRate;
