@@ -43,7 +43,7 @@ public class VisaService {
 	public List<String> directVisaPayment (String extAccount, String extAmount)	throws Exception {
 		
 		
-		LOG.debug("Visa Service :-> Visa Account = " + extAccount );
+		LOG.debug("Visa Service :-> Visa Account   = " + extAccount );
 		LOG.debug("VVisa Service :-> Visa Amount  = " + extAmount );
 			
 		
