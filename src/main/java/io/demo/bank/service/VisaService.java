@@ -44,7 +44,7 @@ public class VisaService {
 		
 		
 		LOG.debug("Visa Service :-> Visa Account   =   " + extAccount );
-		LOG.debug("Visa Service :-> Visa Amount  =  " + extAmount );
+		LOG.debug("Visa Service :-> Visa Amount  =   " + extAmount );
 			
 		
 		if (VisaService.apiBaseUrl == null) {
