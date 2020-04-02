@@ -111,7 +111,7 @@ public class VisaService {
 					approvalcode = "Insufficient Funds2";
 					break;
 				case 57:
-					approvalcode = "Transaction Not Approved";
+					approvalcode = "Transaction Not Approved ";
 					break;
 				case 03:
 					approvalcode = "Denied Invalid Merchant";
