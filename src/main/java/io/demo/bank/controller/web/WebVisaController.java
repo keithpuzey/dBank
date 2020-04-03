@@ -47,7 +47,7 @@ public class WebVisaController extends WebCommonController {
 
 		
 		LOG.debug("Visa Web Controller :-> Visa Account = " + extAccount);
-		LOG.debug("Visa Web Controller :-> Visa Amount = " + extAmount);
+		LOG.debug("Visa Web Controller - update :-> Visa Amount = " + extAmount);
 		
 		
 				// Set Display Defaults test - update
