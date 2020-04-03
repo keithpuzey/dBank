@@ -136,7 +136,7 @@ public class VisaService {
 			
 		}
 		catch (ResourceAccessException ex) {
-			LOG.error("VISA API Service: Unable to reach VISA API Service endpoint");
+			LOG.error("VISA API Service: Unable to reach VISA API Service  endpoint");
 			LOG.error(ex.getMessage());
 			
 			throw ex;
