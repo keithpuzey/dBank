@@ -46,7 +46,7 @@ public class WebVisaController extends WebCommonController {
 							 @ModelAttribute(MODEL_ATT_EXT_AMOUNT) String extAmount) {
 
 		
-		LOG.debug("Visa Web Controller -  Visa Account = " + extAccount);
+		LOG.debug("Visa Web Controller - Visa Account = " + extAccount);
 		LOG.debug("Visa Web Controller - update :-> Visa Amount = " + extAmount);
 		
 		
