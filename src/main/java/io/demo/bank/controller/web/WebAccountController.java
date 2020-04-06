@@ -63,7 +63,7 @@ public class WebAccountController extends WebCommonController {
 		
 		Users user = userService.findByUsername(principal.getName());
 		
-		LOG.debug("New Checking: Account Name -> " + newAccount.getName());
+		LOG.debug("New Checking: Account Name  -> " + newAccount.getName());
 		LOG.debug("New Checking: Initial Deposit -> " + newAccount.getOpeningBalance());
 		LOG.debug("New Checking: Account Type -> " + newAccount.getAccountType().getId());
 		LOG.debug("New Checking: Owner Type -> " + newAccount.getOwnershipType().getId());
