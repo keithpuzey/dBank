@@ -1,0 +1,62 @@
+
+---
+settings:
+    env:
+      BASE_URL: http://dbank.dbankdemo.com:9090
+reporting:
+  - module: junit-xml
+    filename: result.xml
+    data-source: pass-fail
+modules:
+  cloud:
+    report-name: CreateUser Test Report
+    test: CreateUser Test
+execution:
+  - scenario: Create User TC 1 - existing registered user, valid request data
+    concurrency: 2
+    ramp-up: 1s
+    hold-for: 2m
+    iterations: -1
+  Create User TC 1 - existing registered user, valid request data:
+    follow-redirects: true
+    requests:
+      - url: '${BASE_URL}/api/v1/auth?username=admin@demo.io&password=Demo123!'
+        method: POST
+        label: 2. Authenticate API User
+        headers:
+          Content-Type: application/json
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+        extract-jsonpath:
+          authToken: 'authToken'
+      - url: '${BASE_URL}/api/v1/users'
+        method: GET
+        label: 3. Get Existing Email Address
+        headers:
+          Authorization: Bearer ${authToken}
+          Content-Type: application/json
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+        extract-jsonpath:
+          emailAddress: '$[0].userProfile.emailAddress'
+      - url: '${BASE_URL}/api/v1/user?role=API'
+        method: POST
+        label: 4. Create API User
+        headers:
+          Authorization: Bearer ${authToken}
+          Content-Type: application/json
+        body: '{ "address": "^data_address^", "country": "^data_country^", "dob": "^data_dob^", "emailAddress": "^data_email_address^", "firstName": "^data_first_name^", "gender": "^data_gender^", "homePhone": "^data_phone_home^", "lastName": "^data_last_name^", "locality": "^data_locality^", "mobilePhone": "^data_phone_mobile^", "password": "^data_password^", "postalCode": "^data_postal_code^", "region": "^data_region^", "ssn": "^data_ssn^", "title": "^data_title^", "workPhone": "^data_phone_work^" }'
+        assert:
+         - contains:
+           - '406'
+           subject: http-code
+           regexp: true
+           assume-success: true
