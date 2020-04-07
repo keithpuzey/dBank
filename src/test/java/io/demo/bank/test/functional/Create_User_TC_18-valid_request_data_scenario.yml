@@ -4,7 +4,7 @@ execution:
     locations:
       harbor-59464ffd67f3bf63cb7b23c9: 1
 scenarios:
-  Create User TC 18 - valid request data:
+  Create_User_TC_18-valid_request_data:
     follow-redirects: true
     requests:
       - url: '/bank/api/v1/auth?username=admin@demo.io&password=Demo123!'
@@ -26,7 +26,7 @@ scenarios:
         headers:
           Authorization: Bearer ${authToken}
           Content-Type: application/json
-        body: '{ "address": "CONDO MINIO ALTRA DE MAYG #1C", "country": "US", "dob": "01/09/2000", "emailAddress": "Alejandro.Santos14625@gmail.com", "firstName": "Alejandro", "gender": "M", "homePhone": "9797818592", "lastName": "Santos", "locality": "Guaynabo", "mobilePhone": "9797818592", "password": "Demo123!", "postalCode": "00969", "region": "PR", "ssn": "876684500", "title": "Mr.", "workPhone": "9797818592" }'
+        body: '{ "address": "QUINTA SIERRA #2", "country": "US", "dob": "05/10/1930", "emailAddress": "Rickey.Riley1067@gmail.com", "firstName": "Rickey", "gender": "M", "homePhone": "8648205745", "lastName": "Riley", "locality": "Delta Junction", "mobilePhone": "8648205745", "password": "Demo123!", "postalCode": "99737", "region": "AK", "ssn": "404681339", "title": "Mr.", "workPhone": "8648205745" }'
         assert:
          - contains:
            - '201'
