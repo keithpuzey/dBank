@@ -26,7 +26,7 @@ scenarios:
         headers:
           Authorization: Bearer ${authToken}
           Content-Type: application/json
-        body: '{ "address": "QUINTA SIERRA #2", "country": "US", "dob": "05/10/1930", "emailAddress": "Rickey.Riley1067@gmail.com", "firstName": "Rickey", "gender": "M", "homePhone": "8648205745", "lastName": "Riley", "locality": "Delta Junction", "mobilePhone": "8648205745", "password": "Demo123!", "postalCode": "99737", "region": "AK", "ssn": "404681339", "title": "Mr.", "workPhone": "8648205745" }'
+        body: '{ "address": "^data_address^", "country": "^data_country^", "dob": "^data_dob^", "emailAddress": "^data_email_address^", "firstName": "^data_first_name^", "gender": "^data_gender^", "homePhone": "^data_phone_home^", "lastName": "^data_last_name^", "locality": "^data_locality^", "mobilePhone": "^data_phone_mobile^", "password": "^data_password^", "postalCode": "^data_postal_code^", "region": "^data_region^", "ssn": "^data_ssn^", "title": "^data_title^", "workPhone": "^data_phone_work^" }'
         assert:
          - contains:
            - '201'
