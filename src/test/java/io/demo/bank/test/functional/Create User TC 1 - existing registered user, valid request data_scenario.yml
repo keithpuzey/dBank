@@ -1,22 +1,17 @@
 
----
-settings:
-    env:
-      BASE_URL: http://dbank.dbankdemo.com:9090
-reporting:
-  - module: junit-xml
-    filename: result.xml
-    data-source: pass-fail
+
 modules:
-  cloud:
-    report-name: CreateUser Test Report
-    test: CreateUser Test
+  nose:
+    ignore-unknown-actions: true
 execution:
-  - scenario: Create User TC 1 - existing registered user, valid request data
-    concurrency: 2
-    ramp-up: 1s
-    hold-for: 2m
-    iterations: -1
+  - executor: selenium
+    scenario: Create User TC 1 - existing registered user, valid request data
+    blazegrid: true
+    iterations: 1
+    capabilities:
+      browserName: chrome
+
+scenarios:
   Create User TC 1 - existing registered user, valid request data:
     follow-redirects: true
     requests:
@@ -53,7 +48,7 @@ execution:
         headers:
           Authorization: Bearer ${authToken}
           Content-Type: application/json
-        body: '{ "address": "^data_address^", "country": "^data_country^", "dob": "^data_dob^", "emailAddress": "^data_email_address^", "firstName": "^data_first_name^", "gender": "^data_gender^", "homePhone": "^data_phone_home^", "lastName": "^data_last_name^", "locality": "^data_locality^", "mobilePhone": "^data_phone_mobile^", "password": "^data_password^", "postalCode": "^data_postal_code^", "region": "^data_region^", "ssn": "^data_ssn^", "title": "^data_title^", "workPhone": "^data_phone_work^" }'
+        body: '{ "address": "RIO CRISTAL 1152 SANTITOS COLO", "country": "US", "dob": "12/12/1935", "emailAddress": "${emailAddress}", "firstName": "Ean", "gender": "M", "homePhone": "9029274941", "lastName": "Mathews", "locality": "Trenton", "mobilePhone": "", "password": "Demo123!", "postalCode": "08650", "region": "NJ", "ssn": "${__Random(100000000,999999999)}", "title": "Mr.", "workPhone": "" }'
         assert:
          - contains:
            - '406'
