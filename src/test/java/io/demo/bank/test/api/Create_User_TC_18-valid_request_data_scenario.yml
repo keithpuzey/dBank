@@ -1,8 +1,5 @@
-
 execution:
-  - scenario: 'Create User TC 18 - valid request data'
-    locations:
-      harbor-59464ffd67f3bf63cb7b23c9: 1
+  - scenario: 'Create_User_TC_18-valid_request_data'
 scenarios:
   Create_User_TC_18-valid_request_data:
     follow-redirects: true
