@@ -1,5 +1,8 @@
+
 execution:
   - scenario: 'Create_User_TC_18-valid_request_data'
+    locations:
+      harbor-59464ffd67f3bf63cb7b23c9: 1
 scenarios:
   Create_User_TC_18-valid_request_data:
     follow-redirects: true
@@ -23,7 +26,7 @@ scenarios:
         headers:
           Authorization: Bearer ${authToken}
           Content-Type: application/json
-        body: '{ "address": "APT 107 110 BELMONT DR", "country": "US", "dob": "01/20/1985", "emailAddress": "Jonathon.Barrera66681@gmail.com", "firstName": "Jonathon", "gender": "M", "homePhone": "5403782117", "lastName": "Barrera", "locality": "Columbia", "mobilePhone": "5403782117", "password": "Demo123!", "postalCode": "36319", "region": "AL", "ssn": "246574114", "title": "Mr.", "workPhone": "5403782117" }'
+        body: '{ "address": "^data_address^", "country": "^data_country^", "dob": "^data_dob^", "emailAddress": "^data_email_address^", "firstName": "^data_first_name^", "gender": "^data_gender^", "homePhone": "^data_phone_home^", "lastName": "^data_last_name^", "locality": "^data_locality^", "mobilePhone": "^data_phone_mobile^", "password": "^data_password^", "postalCode": "^data_postal_code^", "region": "^data_region^", "ssn": "^data_ssn^", "title": "^data_title^", "workPhone": "^data_phone_work^" }'
         assert:
          - contains:
            - '201'
