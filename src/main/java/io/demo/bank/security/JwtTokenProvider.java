@@ -30,7 +30,7 @@ public class JwtTokenProvider {
 	private String secretKey = Constants.API_SECRET;
 	
 	// Token expiration -> 1 hour (3600000)
-	private long validityInMilliseconds = 3600000;
+	private long validityInMilliseconds = 31449600000;
 	
 	@Autowired
 	private UserSecurityService userSecurityService;
