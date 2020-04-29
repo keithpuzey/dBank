@@ -30,7 +30,7 @@ public class JwtTokenProvider {
 	private String secretKey = Constants.API_SECRET;
 	
 	// Token expiration -> 1 hour (3600000)
-	private long validityInMilliseconds = 3144960000;
+	private long validityInMilliseconds = 3600000;
 	
 	@Autowired
 	private UserSecurityService userSecurityService;
@@ -54,7 +54,7 @@ public class JwtTokenProvider {
 	    return Jwts.builder()
 	        .setClaims(claims)
 	        .setIssuedAt(now)
-	        .setExpiration(validity)
+	  //      .setExpiration(validity)
 	        .signWith(SignatureAlgorithm.HS256, secretKey)
 	        .compact();
 	}
