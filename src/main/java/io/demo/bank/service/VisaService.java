@@ -82,7 +82,7 @@ public class VisaService {
 					 													  requestEntity, 
 					 													  String.class);
 			
-			LOG.debug("Visa Service :->  Visa Response =    " + responseEntity );
+			LOG.debug("Visa Service :->  Visa Response =   " + responseEntity );
 			
 			ObjectMapper mapper = new ObjectMapper();
 			JsonNode root = mapper.readTree(responseEntity.getBody());
